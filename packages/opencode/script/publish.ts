@@ -101,7 +101,7 @@ if (!Script.preview) {
     "",
     "package() {",
     '  install -Dm755 ./asgard-code "${pkgdir}/usr/bin/asgard-code"',
-    '  ln -s "${pkgdir}/usr/bin/asgard-code" "${pkgdir}/usr/bin/asgard"',
+    '  ln -s asgard-code "${pkgdir}/usr/bin/asgard"',
     "}",
     "",
   ].join("\n")
@@ -164,7 +164,7 @@ if (!Script.preview) {
     "    return 1",
     "  fi",
     '  install -Dm755 "$bin" "${pkgdir}/usr/bin/asgard-code"',
-    '  ln -s "${pkgdir}/usr/bin/asgard-code" "${pkgdir}/usr/bin/asgard"',
+    '  ln -s asgard-code "${pkgdir}/usr/bin/asgard"',
     "}",
     "",
   ].join("\n")
