@@ -17,30 +17,31 @@ if (!semver.satisfies(process.versions.bun, expectedBunVersionRange)) {
 }
 
 const env = {
-  OPENCODE_CHANNEL: process.env["OPENCODE_CHANNEL"],
-  OPENCODE_BUMP: process.env["OPENCODE_BUMP"],
-  OPENCODE_VERSION: process.env["OPENCODE_VERSION"],
-  OPENCODE_RELEASE: process.env["OPENCODE_RELEASE"],
+  ASGARD_CODE_CHANNEL: process.env["ASGARD_CODE_CHANNEL"],
+  ASGARD_CODE_BUMP: process.env["ASGARD_CODE_BUMP"],
+  ASGARD_CODE_VERSION: process.env["ASGARD_CODE_VERSION"],
+  ASGARD_CODE_RELEASE: process.env["ASGARD_CODE_RELEASE"],
 }
 const CHANNEL = await (async () => {
-  if (env.OPENCODE_CHANNEL) return env.OPENCODE_CHANNEL
-  if (env.OPENCODE_BUMP) return "latest"
-  if (env.OPENCODE_VERSION && !env.OPENCODE_VERSION.startsWith("0.0.0-")) return "latest"
+  if (env.ASGARD_CODE_CHANNEL) return env.ASGARD_CODE_CHANNEL
+  if (env.ASGARD_CODE_BUMP) return "latest"
+  if (env.ASGARD_CODE_VERSION && !env.ASGARD_CODE_VERSION.startsWith("0.0.0-")) return "latest"
   return await $`git branch --show-current`.text().then((x) => x.trim())
 })()
 const IS_PREVIEW = CHANNEL !== "latest"
 
 const VERSION = await (async () => {
-  if (env.OPENCODE_VERSION) return env.OPENCODE_VERSION
+  if (env.ASGARD_CODE_VERSION) return env.ASGARD_CODE_VERSION
   if (IS_PREVIEW) return `0.0.0-${CHANNEL}-${new Date().toISOString().slice(0, 16).replace(/[-:T]/g, "")}`
-  const version = await fetch("https://registry.npmjs.org/opencode-ai/latest")
+  const version = await fetch("https://registry.npmjs.org/asgard-code/latest")
     .then((res) => {
       if (!res.ok) throw new Error(res.statusText)
       return res.json()
     })
     .then((data: any) => data.version)
+    .catch(() => "1.0.0")
   const [major, minor, patch] = version.split(".").map((x: string) => Number(x) || 0)
-  const t = env.OPENCODE_BUMP?.toLowerCase()
+  const t = env.ASGARD_CODE_BUMP?.toLowerCase()
   if (t === "major") return `${major + 1}.0.0`
   if (t === "minor") return `${major}.${minor + 1}.0`
   return `${major}.${minor}.${patch + 1}`
@@ -57,7 +58,7 @@ export const Script = {
     return IS_PREVIEW
   },
   get release() {
-    return env.OPENCODE_RELEASE
+    return env.ASGARD_CODE_RELEASE
   },
 }
-console.log(`opencode script`, JSON.stringify(Script, null, 2))
+console.log(`asgard-code script`, JSON.stringify(Script, null, 2))

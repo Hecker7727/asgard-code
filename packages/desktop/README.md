@@ -1,6 +1,6 @@
-# OpenCode Desktop
+# Asgard Code Desktop
 
-Native OpenCode desktop app, built with Tauri v2.
+Native Asgard Code desktop app, built with Tauri v2.
 
 ## Development
 

@@ -1,15 +1,54 @@
-# js
+# Asgard Code
 
-To install dependencies:
+AI-powered development tool.
+
+## Installation
+
+```bash
+# Install globally
+npm install -g asgard-code
+
+# Or use npx to run without installing
+npx asgard-code
+```
+
+## Usage
+
+After installation, you can use either command:
+
+```bash
+asgard          # Short command
+asgard-code     # Full command
+```
+
+### Quick Start
+
+```bash
+cd your-project
+asgard          # Start Asgard Code
+```
+
+## Development
 
 ```bash
 bun install
+bun run dev
 ```
 
-To run:
+## Build
 
 ```bash
-bun run index.ts
+bun run build
 ```
 
-This project was created using `bun init` in bun v1.2.12. [Bun](https://bun.sh) is a fast all-in-one JavaScript runtime.
+The CLI binary will be built into the `dist/` folder.
+
+## Test
+
+```bash
+bun run test
+```
+
+## License
+
+MIT

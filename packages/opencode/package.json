@@ -1,10 +1,27 @@
 {
   "$schema": "https://json.schemastore.org/package.json",
   "version": "1.1.47",
-  "name": "opencode",
+  "name": "asgard-code",
+  "description": "AI-powered development tool - Asgard Code CLI",
+  "author": "Hecker7727",
   "type": "module",
   "license": "MIT",
-  "private": true,
+  "keywords": [
+    "ai",
+    "coding",
+    "cli",
+    "asgard",
+    "development",
+    "agent"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Hecker7727/asgard-code"
+  },
+  "homepage": "https://github.com/Hecker7727/asgard-code",
+  "bugs": {
+    "url": "https://github.com/Hecker7727/asgard-code/issues"
+  },
   "scripts": {
     "typecheck": "tsgo --noEmit",
     "test": "bun test",
@@ -18,7 +35,8 @@
     "deploy": "echo 'Deploying application...' && bun run build && echo 'Deployment completed successfully'"
   },
   "bin": {
-    "opencode": "./bin/opencode"
+    "asgard": "./bin/asgard-code",
+    "asgard-code": "./bin/asgard-code"
   },
   "exports": {
     "./*": "./src/*.ts"
@@ -26,7 +44,7 @@
   "devDependencies": {
     "@babel/core": "7.28.4",
     "@octokit/webhooks-types": "7.6.1",
-    "@opencode-ai/script": "workspace:*",
+    "@asgard-code/script": "workspace:*",
     "@parcel/watcher-darwin-arm64": "2.5.1",
     "@parcel/watcher-darwin-x64": "2.5.1",
     "@parcel/watcher-linux-arm64-glibc": "2.5.1",
@@ -77,10 +95,10 @@
     "@octokit/graphql": "9.0.2",
     "@octokit/rest": "catalog:",
     "@openauthjs/openauth": "catalog:",
-    "@opencode-ai/plugin": "workspace:*",
-    "@opencode-ai/script": "workspace:*",
-    "@opencode-ai/sdk": "workspace:*",
-    "@opencode-ai/util": "workspace:*",
+    "@asgard-code/plugin": "workspace:*",
+    "@asgard-code/script": "workspace:*",
+    "@asgard-code/sdk": "workspace:*",
+    "@asgard-code/util": "workspace:*",
     "@openrouter/ai-sdk-provider": "1.5.4",
     "@opentui/core": "0.1.75",
     "@opentui/solid": "0.1.75",
