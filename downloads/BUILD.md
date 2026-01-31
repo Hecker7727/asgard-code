@@ -18,6 +18,8 @@ bun install
 bun run build --single
 ```
 
+Note: The CLI source code is located in `packages/opencode` (the directory name was preserved for backwards compatibility).
+
 The binary will be placed in `packages/opencode/dist/asgard-code-<platform>-<arch>/bin/asgard-code`.
 
 To build for all supported platforms:

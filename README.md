@@ -1,11 +1,9 @@
 <p align="center">
-  <a href="#">
     <picture>
       <source srcset="packages/console/app/src/asset/logo-ornate-dark.svg" media="(prefers-color-scheme: dark)">
       <source srcset="packages/console/app/src/asset/logo-ornate-light.svg" media="(prefers-color-scheme: light)">
       <img src="packages/console/app/src/asset/logo-ornate-light.svg" alt="Asgard Code logo">
     </picture>
-  </a>
 </p>
 <p align="center">AI-powered development tool.</p>
 <p align="center">
@@ -31,7 +29,7 @@
   <a href="README.th.md">ไทย</a>
 </p>
 
-[![Asgard Code Terminal UI](packages/web/src/assets/lander/screenshot.png)](#)
+![Asgard Code Terminal UI](packages/web/src/assets/lander/screenshot.png)
 
 ---
 
