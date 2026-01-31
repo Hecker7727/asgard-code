@@ -33,7 +33,7 @@ permissions:
 jobs:
   version:
     runs-on: blacksmith-4vcpu-ubuntu-2404
-    if: github.repository == 'anomalyco/opencode'
+    if: github.repository == 'Hecker7727/asgard-code'
     steps:
       - uses: actions/checkout@v3
         with:
@@ -41,18 +41,17 @@ jobs:
 
       - uses: ./.github/actions/setup-bun
 
-      - name: Install OpenCode
+      - name: Install Asgard Code
         if: inputs.bump || inputs.version
-        run: bun i -g opencode-ai
+        run: bun i -g asgard-code
 
       - id: version
         run: |
           ./script/version.ts
         env:
           GH_TOKEN: ${{ github.token }}
-          OPENCODE_BUMP: ${{ inputs.bump }}
-          OPENCODE_VERSION: ${{ inputs.version }}
-          OPENCODE_API_KEY: ${{ secrets.OPENCODE_API_KEY }}
+          ASGARD_CODE_BUMP: ${{ inputs.bump }}
+          ASGARD_CODE_VERSION: ${{ inputs.version }}
     outputs:
       version: ${{ steps.version.outputs.version }}
       release: ${{ steps.version.outputs.release }}
@@ -61,7 +60,7 @@ jobs:
   build-cli:
     needs: version
     runs-on: blacksmith-4vcpu-ubuntu-2404
-    if: github.repository == 'anomalyco/opencode'
+    if: github.repository == 'Hecker7727/asgard-code'
     steps:
       - uses: actions/checkout@v3
         with:
@@ -74,13 +73,13 @@ jobs:
         run: |
           ./packages/opencode/script/build.ts
         env:
-          OPENCODE_VERSION: ${{ needs.version.outputs.version }}
-          OPENCODE_RELEASE: ${{ needs.version.outputs.release }}
+          ASGARD_CODE_VERSION: ${{ needs.version.outputs.version }}
+          ASGARD_CODE_RELEASE: ${{ needs.version.outputs.release }}
           GH_TOKEN: ${{ github.token }}
 
       - uses: actions/upload-artifact@v4
         with:
-          name: opencode-cli
+          name: asgard-code-cli
           path: packages/opencode/dist
 
     outputs:
@@ -163,7 +162,7 @@ jobs:
           cd packages/desktop
           bun ./scripts/prepare.ts
         env:
-          OPENCODE_VERSION: ${{ needs.version.outputs.version }}
+          ASGARD_CODE_VERSION: ${{ needs.version.outputs.version }}
           GITHUB_TOKEN: ${{ steps.committer.outputs.token }}
           RUST_TARGET: ${{ matrix.settings.target }}
           GH_TOKEN: ${{ github.token }}
@@ -189,7 +188,7 @@ jobs:
           releaseId: ${{ needs.version.outputs.release }}
           tagName: ${{ needs.version.outputs.tag }}
           releaseDraft: true
-          releaseAssetNamePattern: opencode-desktop-[platform]-[arch][ext]
+          releaseAssetNamePattern: asgard-code-desktop-[platform]-[arch][ext]
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           TAURI_BUNDLER_NEW_APPIMAGE_FORMAT: true
@@ -240,7 +239,7 @@ jobs:
 
       - uses: actions/download-artifact@v4
         with:
-          name: opencode-cli
+          name: asgard-code-cli
           path: packages/opencode/dist
 
       - name: Cache apt packages (AUR)
@@ -258,14 +257,14 @@ jobs:
           mkdir -p ~/.ssh
           echo "${{ secrets.AUR_KEY }}" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
-          git config --global user.email "opencode@sst.dev"
-          git config --global user.name "opencode"
+          git config --global user.email "asgard-code@github.com"
+          git config --global user.name "asgard-code"
           ssh-keyscan -H aur.archlinux.org >> ~/.ssh/known_hosts || true
 
       - run: ./script/publish.ts
         env:
-          OPENCODE_VERSION: ${{ needs.version.outputs.version }}
-          OPENCODE_RELEASE: ${{ needs.version.outputs.release }}
+          ASGARD_CODE_VERSION: ${{ needs.version.outputs.version }}
+          ASGARD_CODE_RELEASE: ${{ needs.version.outputs.release }}
           AUR_KEY: ${{ secrets.AUR_KEY }}
           GITHUB_TOKEN: ${{ steps.committer.outputs.token }}
           NPM_CONFIG_PROVENANCE: false

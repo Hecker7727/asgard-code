@@ -73,14 +73,14 @@
   },
   "dependencies": {
     "@aws-sdk/client-s3": "3.933.0",
-    "@opencode-ai/plugin": "workspace:*",
-    "@opencode-ai/script": "workspace:*",
-    "@opencode-ai/sdk": "workspace:*",
+    "@asgard-code/plugin": "workspace:*",
+    "@asgard-code/script": "workspace:*",
+    "@asgard-code/sdk": "workspace:*",
     "typescript": "catalog:"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/anomalyco/opencode"
+    "url": "https://github.com/Hecker7727/asgard-code"
   },
   "license": "MIT",
   "prettier": {

@@ -1,10 +1,10 @@
-import { FileDiff, Message, Model, Part, Session } from "@opencode-ai/sdk/v2"
-import { fn } from "@opencode-ai/util/fn"
-import { iife } from "@opencode-ai/util/iife"
-import { Identifier } from "@opencode-ai/util/identifier"
+import { FileDiff, Message, Model, Part, Session } from "@asgard-code/sdk/v2"
+import { fn } from "@asgard-code/util/fn"
+import { iife } from "@asgard-code/util/iife"
+import { Identifier } from "@asgard-code/util/identifier"
 import z from "zod"
 import { Storage } from "./storage"
-import { Binary } from "@opencode-ai/util/binary"
+import { Binary } from "@asgard-code/util/binary"
 
 export namespace Share {
   export const Info = z.object({

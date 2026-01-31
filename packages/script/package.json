@@ -1,6 +1,6 @@
 {
   "$schema": "https://json.schemastore.org/package",
-  "name": "@opencode-ai/script",
+  "name": "@asgard-code/script",
   "license": "MIT",
   "devDependencies": {
     "@types/bun": "catalog:"
