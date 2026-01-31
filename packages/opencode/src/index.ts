@@ -41,7 +41,7 @@ process.on("uncaughtException", (e) => {
 
 const cli = yargs(hideBin(process.argv))
   .parserConfiguration({ "populate--": true })
-  .scriptName("asgard-code")
+  .scriptName("asgard")
   .wrap(100)
   .help("help", "show help")
   .alias("help", "h")

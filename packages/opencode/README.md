@@ -5,12 +5,33 @@ AI-powered development tool.
 ## Installation
 
 ```bash
-bun install
+# Install globally
+npm install -g asgard-code
+
+# Or use npx to run without installing
+npx asgard-code
+```
+
+## Usage
+
+After installation, you can use either command:
+
+```bash
+asgard          # Short command
+asgard-code     # Full command
+```
+
+### Quick Start
+
+```bash
+cd your-project
+asgard          # Start Asgard Code
 ```
 
 ## Development
 
 ```bash
+bun install
 bun run dev
 ```
 
@@ -27,3 +48,7 @@ The CLI binary will be built into the `dist/` folder.
 ```bash
 bun run test
 ```
+
+## License
+
+MIT

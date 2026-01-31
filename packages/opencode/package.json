@@ -2,9 +2,26 @@
   "$schema": "https://json.schemastore.org/package.json",
   "version": "1.1.47",
   "name": "asgard-code",
+  "description": "AI-powered development tool - Asgard Code CLI",
+  "author": "Hecker7727",
   "type": "module",
   "license": "MIT",
-  "private": true,
+  "keywords": [
+    "ai",
+    "coding",
+    "cli",
+    "asgard",
+    "development",
+    "agent"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Hecker7727/asgard-code"
+  },
+  "homepage": "https://github.com/Hecker7727/asgard-code",
+  "bugs": {
+    "url": "https://github.com/Hecker7727/asgard-code/issues"
+  },
   "scripts": {
     "typecheck": "tsgo --noEmit",
     "test": "bun test",
@@ -18,6 +35,7 @@
     "deploy": "echo 'Deploying application...' && bun run build && echo 'Deployment completed successfully'"
   },
   "bin": {
+    "asgard": "./bin/asgard-code",
     "asgard-code": "./bin/asgard-code"
   },
   "exports": {

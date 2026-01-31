@@ -7,6 +7,7 @@
 </p>
 <p align="center">AI-powered development tool.</p>
 <p align="center">
+  <a href="https://www.npmjs.com/package/asgard-code"><img alt="npm" src="https://img.shields.io/npm/v/asgard-code?style=flat-square" /></a>
   <a href="https://github.com/Hecker7727/asgard-code/actions"><img alt="Build status" src="https://img.shields.io/github/actions/workflow/status/Hecker7727/asgard-code/publish.yml?style=flat-square&branch=dev" /></a>
 </p>
 
@@ -36,8 +37,27 @@
 ### Installation
 
 ```bash
-# Package managers
-npm i -g asgard-code@latest        # or bun/pnpm/yarn
+# Install globally via npm
+npm install -g asgard-code
+
+# Or use npx to run without installing
+npx asgard-code
+
+# Alternative package managers
+bun add -g asgard-code
+pnpm add -g asgard-code
+yarn global add asgard-code
+```
+
+After installation, you can use either command:
+- `asgard` - Short command
+- `asgard-code` - Full command
+
+### Quick Start
+
+```bash
+cd your-project
+asgard          # Start Asgard Code
 ```
 
 ### Desktop App (BETA)
